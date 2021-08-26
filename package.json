@@ -1,0 +1,72 @@
+{
+  "name": "dia05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "start": "webpack serve --env=local --progress  --open",
+    "build": "webpack --env=production",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "lint-fix": "eslint ./src --ext .js,.jsx --fix",
+    "prettier": "prettier \"**/*.{js,jsx}\"  --write",
+    "pre-commit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "./src/**/*.{css,scss}": [
+      "prettier --write"
+    ],
+    "./*.{js,json}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.1",
+    "interpolate-html-plugin": "^4.0.0",
+    "lint-staged": "^11.1.1",
+    "mini-css-extract-plugin": "^2.2.0",
+    "node-sass": "^6.0.1",
+    "prettier": "^2.3.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.47.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^2.16.1",
+    "@azure/msal-react": "^1.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-adal": "^0.5.2",
+    "react-dom": "^17.0.2"
+  }
+}
