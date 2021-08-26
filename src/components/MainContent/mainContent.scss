@@ -6,28 +6,9 @@
   background-color: whitesmoke;
   color: white;
   padding: 0;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
-
-  .component::-webkit-scrollbar-track {
-      background: lightgray;
-  }
-
-  .component::-webkit-scrollbar {
-      width: 0.7em;
-      height: 0.7em;
-  }
-
-  .component::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.6);
-      border-radius: 3px;
-      cursor: pointer;
-  }
-
-      .component::-webkit-scrollbar-thumb:hover {
-          background: #555;
-      }
 
 .loader {
   width: 80px;
