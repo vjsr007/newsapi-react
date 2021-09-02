@@ -5,8 +5,9 @@ import ArticleContainer from '../ArticleContainer'
 import CustomLoader, { loaders } from '../CustomLoader'
 
 import styles from './mainContent.scss'
+import Notification from '../Notification'
 
-const MainContent = ({ data }) => (
+const MainContent = ({ data, error }) => (
   <div className={styles.component}>
     {data?.articles?.length > 0 ? (
       <ArticleContainer data={data} />
@@ -15,15 +16,18 @@ const MainContent = ({ data }) => (
         <CustomLoader defaultLoader={loaders.cube} />
       </div>
     )}
+    <Notification hide={!error} message={error} />
   </div>
 )
 
 MainContent.defaultProps = {
   data: {},
+  error: null,
 }
 
 MainContent.propTypes = {
   data: PropTypes.object,
+  error: PropTypes.string,
 }
 
 export default MainContent

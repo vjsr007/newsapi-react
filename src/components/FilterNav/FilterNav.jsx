@@ -11,7 +11,7 @@ import { lans, dates, sort } from '../../constants/constants'
 import CustomLabel from '../CustomLabel/CustomLabel'
 import { getSources } from '../../services/newsService'
 
-const FilterNav = ({ totalResults, changeNews, setArticles }) => {
+const FilterNav = ({ totalResults, changeNews, setArticles, handleArticleError }) => {
   const [sources, setSources] = useState([])
   const [filters, setFilters] = useState({
     page: 1,
@@ -25,7 +25,12 @@ const FilterNav = ({ totalResults, changeNews, setArticles }) => {
 
   const handleChangeNews = () => {
     setArticles({})
-    changeNews(filters).then(data => setArticles(data))
+    handleArticleError()
+    changeNews(filters)
+      .then(data => setArticles(data))
+      .catch(error => {
+        handleArticleError(error.message)
+      })
   }
 
   useEffect(() => {
@@ -119,12 +124,14 @@ FilterNav.defaultProps = {
   totalResults: 0,
   changeNews: () => {},
   setArticles: () => {},
+  handleArticleError: () => {},
 }
 
 FilterNav.propTypes = {
   totalResults: PropTypes.number,
   changeNews: PropTypes.func,
   setArticles: PropTypes.func,
+  handleArticleError: PropTypes.func,
 }
 
 export default FilterNav

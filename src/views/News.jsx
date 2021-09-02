@@ -7,6 +7,11 @@ import styles from './news.scss'
 
 const News = () => {
   const [articles, setArticles] = useState({})
+  const [error, setError] = useState(null)
+
+  const handleArticleError = message => {
+    setError(message)
+  }
 
   return (
     <div className={styles.component}>
@@ -14,8 +19,9 @@ const News = () => {
         totalResults={articles?.totalResults ?? 0}
         changeNews={changeNews}
         setArticles={setArticles}
+        handleArticleError={handleArticleError}
       />
-      <MainContent data={articles} />
+      <MainContent data={articles} error={error} />
     </div>
   )
 }
