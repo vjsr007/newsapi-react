@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './dropdown.scss'
+import CustomLoader, { loaders } from '../CustomLoader'
 
 const Dropdown = ({ options, defaultText, multiSelect, onChange }) => {
   const [open, setOpen] = useState(false)
@@ -12,14 +13,14 @@ const Dropdown = ({ options, defaultText, multiSelect, onChange }) => {
   }, [selected])
 
   const renderIcon = () =>
-    options !== null ? (
+    options?.length > 0 ? (
       <i
         id="toggleIcon"
         className={open ? styles.icon_triangule_up : styles.icon_triangule_down}
         aria-hidden="true"
       />
     ) : (
-      ''
+      <CustomLoader defaultLoader={loaders.spin} />
     )
 
   const hide = ev => {

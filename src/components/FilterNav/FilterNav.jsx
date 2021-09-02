@@ -24,6 +24,7 @@ const FilterNav = ({ totalResults, changeNews, setArticles }) => {
   }, [])
 
   const handleChangeNews = () => {
+    setArticles({})
     changeNews(filters).then(data => setArticles(data))
   }
 

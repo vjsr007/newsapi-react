@@ -8,7 +8,7 @@ import styles from './mainContent.scss'
 
 const MainContent = ({ data }) => (
   <div className={styles.component}>
-    {data?.articles ? (
+    {data?.articles?.length > 0 ? (
       <ArticleContainer data={data} />
     ) : (
       <div className={styles.loader}>
