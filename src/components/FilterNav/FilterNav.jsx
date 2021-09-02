@@ -42,7 +42,9 @@ const FilterNav = ({ totalResults, changeNews, setArticles, handleArticleError }
   }
 
   const changePage = ({ page }) => {
-    setFilters({ ...filters, page })
+    const newState = { ...filters, page }
+    setFilters(newState)
+    setTempfilters(newState)
   }
 
   const changeTopic = event => {
