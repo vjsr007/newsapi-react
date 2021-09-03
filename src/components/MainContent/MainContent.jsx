@@ -16,9 +16,7 @@ const MainContent = ({ data, error }) => (
         <CustomLoader defaultLoader={loaders.cube} />
       </div>
     )}
-    <Notification hide={!error} message={error}>
-      <label>Mensaje</label>
-    </Notification>
+    <Notification hide={!error} message={error} />
   </div>
 )
 
