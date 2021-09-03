@@ -35,6 +35,18 @@
   }
 }
 
+.success {
+  background-color: green;
+}
+
+.warning {
+  background-color: orange;
+}
+
+.error {
+  background-color: red;
+}
+
 .show {
   transition: left 0.5s;
   left: 0;
