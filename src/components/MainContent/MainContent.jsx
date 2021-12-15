@@ -6,6 +6,7 @@ import CustomLoader, { loaders } from '../CustomLoader'
 
 import styles from './mainContent.scss'
 import Notification from '../Notification'
+import { types } from '../Notification/Notification'
 
 const MainContent = ({ data, error }) => (
   <div className={styles.component}>
@@ -16,7 +17,7 @@ const MainContent = ({ data, error }) => (
         <CustomLoader defaultLoader={loaders.cube} />
       </div>
     )}
-    <Notification hide={!error} message={error} />
+    <Notification hide={!error} message={error} type={types.warning} />
   </div>
 )
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
-    "start": "webpack serve --env=local --progress  --open",
+    "start": "webpack serve --env=local --progress --open",
     "build": "webpack --env=production",
     "lint": "eslint ./src --ext .js,.jsx",
     "lint-fix": "eslint ./src --ext .js,.jsx --fix",
